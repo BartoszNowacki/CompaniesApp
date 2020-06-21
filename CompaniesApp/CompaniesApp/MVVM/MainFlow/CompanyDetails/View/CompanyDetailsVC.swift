@@ -14,16 +14,16 @@ class CompanyDetailsVC: UIViewController, IInstantiate {
     
     // MARK: STATIC
     
-    static var navigationControllerIdentifier = "CompaniesNC"
     static var storyboardName = "Main"
-    static var viewControllerIdentifier = "CompaniesVC"
+    static var viewControllerIdentifier = "CompanyDetailsVC"
     
     // MARK: OUTLETS
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var coordinatesLabel: UILabel!
+    @IBOutlet weak var longtitudeLabel: UILabel!
+    @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -40,7 +40,7 @@ class CompanyDetailsVC: UIViewController, IInstantiate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.getCompany()
+        bindUI()
     }
     
     private func bindUI() {
@@ -55,19 +55,26 @@ class CompanyDetailsVC: UIViewController, IInstantiate {
             nameLabel.text = company.name
             descriptionLabel.text = company.description
             cityLabel.text = company.address.city
-            coordinatesLabel.text = "Długość: \(company.address.coorinates.longitude)  Szerokość: \(company.address.coorinates.latitude)"
+            longtitudeLabel.text = "Długość: \(company.address.coordinates.longitude)"
+            latitudeLabel.text = "Szerokość: \(company.address.coordinates.latitude)"
             if let url = URL(string: company.cover_image) {
                 KingfisherManager.shared.retrieveImage(with: url) { [weak self] result in
                     switch result {
                     case .success(let value):
-                        self?.iconView.image = value.image                    case .failure(let error):
+                        self?.iconView.image = value.image
+                        self?.stopLoading()
+                    case .failure(let error):
+                        self?.stopLoading()
                         print("[KingfisherManager] image download error: \(error)")
                     }
                 }
             }
-            loadingIndicator.stopAnimating()
-            loadingView.isHidden = true
         }
+    }
+    
+    private func stopLoading() {
+        loadingIndicator.stopAnimating()
+        loadingView.isHidden = true
     }
 }
 

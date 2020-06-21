@@ -12,8 +12,8 @@ import UIKit
 extension UIApplication {
     
     var visibleViewController: UIViewController? {
-        
-        guard let rootViewController = keyWindow?.rootViewController else { // I'm aware that keyWindow is deprecated from iOS13, but I don't use other scenes, so I will use it for now.
+        // I'm aware that keyWindow is deprecated from iOS13, but I don't use other
+        guard let rootViewController = keyWindow?.rootViewController else { 
             return nil
         }
         

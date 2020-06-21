@@ -53,9 +53,9 @@ final class CompaniesProvider: CompaniesProviderProtocol {
         },
             onFailure: { (errorResponse, error) in
                 print("Error occurred during download process")
+                completion(nil, errorResponse?.error.info ?? "Coś poszło nie tak")
                 if let errorResponse = errorResponse {
                     print("Error: \(errorResponse.error.info)")
-                    completion(nil, errorResponse.error.info)
                 }
         })
     }

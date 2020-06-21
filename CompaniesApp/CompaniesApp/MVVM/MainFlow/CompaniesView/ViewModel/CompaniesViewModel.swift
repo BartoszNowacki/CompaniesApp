@@ -51,6 +51,7 @@ final class CompaniesViewModel: CompaniesViewModelProtocol {
 
     required init(provider: CompaniesProvider = CompaniesProvider()) {
         self.provider = provider
+        self.getCompaniesList()
     }
     
     // MARK: PUBLIC METHODS

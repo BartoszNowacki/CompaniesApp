@@ -43,11 +43,13 @@ class CompaniesVC: UIViewController, INavigatedInstantiate {
         viewModel?.companies.asDriver(onErrorJustReturn: [Company]())
             .drive(onNext: { [weak self] _ in
                 self?.updateTableView()
+                self?.loadingIndicator.stopAnimating()
             }).disposed(by: disposeBag)
         
         viewModel?.errorMessage.asDriver()
             .drive(onNext: { [weak self] message in
                 self?.display(message: message)
+                self?.loadingIndicator.stopAnimating()
             }).disposed(by: disposeBag)
     }
     
@@ -55,15 +57,6 @@ class CompaniesVC: UIViewController, INavigatedInstantiate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
-        tableView.refreshControl = UIRefreshControl()
-        tableView.refreshControl?.backgroundColor = .white
-        tableView.refreshControl?.tintColor = .black
-        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Przeciągnij aby odświeżyć")
-        tableView.refreshControl?.addTarget(
-            self,
-            action: #selector(refreshCoins),
-            for: .valueChanged
-        )
     }
     
     private func updateTableView() {
@@ -96,7 +89,9 @@ extension CompaniesVC: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel?.onShowCompanyDetails?(indexPath.row)
+        if let company = viewModel?.getCompany(row: indexPath.row) {
+            viewModel?.onShowCompanyDetails?(company.id)
+        }
     }
 }
 

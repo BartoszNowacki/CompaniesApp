@@ -10,9 +10,8 @@
 		A2287F60249E0DE20026E663 /* IInstantiate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287F5F249E0DE20026E663 /* IInstantiate.swift */; };
 		A2287F62249E0FB10026E663 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287F61249E0FB10026E663 /* UIViewController+Ext.swift */; };
 		A2287F65249E14EE0026E663 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2287F64249E14EE0026E663 /* Kingfisher.framework */; };
-		A2287F69249E15000026E663 /* QuickLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2287F68249E15000026E663 /* QuickLayout.framework */; };
-		A2287F6C249E15080026E663 /* SwiftEntryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2287F6B249E15080026E663 /* SwiftEntryKit.framework */; };
 		A2287F72249E177E0026E663 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2287F71249E177E0026E663 /* FlowCoordinator.swift */; };
+		A2682F76249FE1F50034AA61 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2682F75249FE1F40034AA61 /* RxRelay.framework */; };
 		A29F1245249F5E1F00B59FA3 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1244249F5E1F00B59FA3 /* MainFlowCoordinator.swift */; };
 		A29F1247249F5FF100B59FA3 /* UIAplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1246249F5FF100B59FA3 /* UIAplication+Ext.swift */; };
 		A29F124D249F6C8C00B59FA3 /* CompaniesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F124C249F6C8C00B59FA3 /* CompaniesViewModel.swift */; };
@@ -62,6 +61,7 @@
 		A2287F68249E15000026E663 /* QuickLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLayout.framework; path = Carthage/Build/iOS/QuickLayout.framework; sourceTree = "<group>"; };
 		A2287F6B249E15080026E663 /* SwiftEntryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftEntryKit.framework; path = Carthage/Build/iOS/SwiftEntryKit.framework; sourceTree = "<group>"; };
 		A2287F71249E177E0026E663 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		A2682F75249FE1F40034AA61 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		A29F1244249F5E1F00B59FA3 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
 		A29F1246249F5FF100B59FA3 /* UIAplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+Ext.swift"; sourceTree = "<group>"; };
 		A29F124C249F6C8C00B59FA3 /* CompaniesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesViewModel.swift; sourceTree = "<group>"; };
@@ -98,9 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2287F69249E15000026E663 /* QuickLayout.framework in Frameworks */,
+				A2682F76249FE1F50034AA61 /* RxRelay.framework in Frameworks */,
 				A2287F65249E14EE0026E663 /* Kingfisher.framework in Frameworks */,
-				A2287F6C249E15080026E663 /* SwiftEntryKit.framework in Frameworks */,
 				A29F1251249F6FEB00B59FA3 /* RxSwift.framework in Frameworks */,
 				A29F124F249F6FE400B59FA3 /* RxCocoa.framework in Frameworks */,
 			);
@@ -169,6 +168,7 @@
 		A2287F63249E14EE0026E663 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2682F75249FE1F40034AA61 /* RxRelay.framework */,
 				A29F1250249F6FEB00B59FA3 /* RxSwift.framework */,
 				A29F124E249F6FE400B59FA3 /* RxCocoa.framework */,
 				A2287F6B249E15080026E663 /* SwiftEntryKit.framework */,
@@ -198,9 +198,9 @@
 		A2287F76249E189A0026E663 /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
-				A29F1266249FAB4F00B59FA3 /* CompanyDetails */,
-				A29F1240249F588B00B59FA3 /* CompaniesView */,
 				A29F1244249F5E1F00B59FA3 /* MainFlowCoordinator.swift */,
+				A29F1240249F588B00B59FA3 /* CompaniesView */,
+				A29F1266249FAB4F00B59FA3 /* CompanyDetails */,
 			);
 			path = MainFlow;
 			sourceTree = "<group>";
@@ -350,6 +350,7 @@
 				A2E06E49249CF611004D195F /* Sources */,
 				A2E06E4A249CF611004D195F /* Frameworks */,
 				A2E06E4B249CF611004D195F /* Resources */,
+				A29F126E249FD32900B59FA3 /* Carthage Script */,
 			);
 			buildRules = (
 			);
@@ -465,6 +466,35 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A29F126E249FD32900B59FA3 /* Carthage Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+			);
+			name = "Carthage Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Kingfisher.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxCocoa.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RxRelay.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A2E06E49249CF611004D195F /* Sources */ = {

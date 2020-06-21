@@ -17,11 +17,11 @@ struct CompanyDetailsRequest: Codable, APIEndpoint {
       }
     
     func endpoint() -> String {
-        return "companies/:id"
+        return "companies/\(id)"
     }
     
     func params() -> [URLQueryItem]? {
-        return [URLQueryItem(name: "id", value: String(id))]
+        return nil
     }
     
     func dispatch(

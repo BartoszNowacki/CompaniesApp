@@ -42,6 +42,7 @@ final class CompanyDetailsViewModel: CompanyDetailsViewModelProtocol {
     required init(provider: CompaniesProvider = CompaniesProvider(), companyID: Int) {
         self.provider = provider
         self.companyID = companyID
+        getCompany() 
     }
     
     // MARK: PUBLIC METHODS

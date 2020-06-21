@@ -17,18 +17,18 @@ struct Company: Codable {
 
 struct Address: Codable {
     let city: String
-    let coorinates: Coordinates
+    let coordinates: Coordinates
 }
 
 struct Coordinates: Codable {
-    let latitude: Float
-    let longitude: Float
+    let latitude: String
+    let longitude: String
 }
 
 struct CompanyDetails: Codable {
-    let id: Int
-    let name: String
+    let address: Address
     let cover_image: String
     let description: String
-    let address: Address
+    let id: Int
+    let name: String
 }

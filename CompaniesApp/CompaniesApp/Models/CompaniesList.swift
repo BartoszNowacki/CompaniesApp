@@ -9,6 +9,6 @@
 import Foundation
 
 struct CompaniesList: Codable {
-    let page: Int
+    let page: String
     let results: [Company]
 }
