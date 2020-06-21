@@ -1,2 +1,3 @@
 github "huri000/SwiftEntryKit"
 github "onevcat/Kingfisher"
+github "ReactiveX/RxSwift" ~> 5.0
