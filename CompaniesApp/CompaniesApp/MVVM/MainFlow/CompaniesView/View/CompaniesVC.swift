@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class CompaniesVC: UIViewController, INavigatedInstantiate {
     
@@ -36,8 +37,11 @@ class CompaniesVC: UIViewController, INavigatedInstantiate {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindUI()
+        searchBar.delegate = self
         setupTableView()
     }
+    
+     // MARK: SETUP
     
     private func bindUI() {
         viewModel?.companies.asDriver(onErrorJustReturn: [Company]())
@@ -97,6 +101,18 @@ extension CompaniesVC: UITableViewDelegate, UITableViewDataSource {
         if let dataCount = viewModel?.companiesCount, indexPath.row == dataCount - 1 {
             refreshList()
         }
+    }
+}
+
+extension CompaniesVC: UISearchBarDelegate {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            loadingIndicator.startAnimating()
+            viewModel?.getSearchedCompaniesList(for: text)
+        }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
     }
 }
 

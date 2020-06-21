@@ -45,6 +45,7 @@ final class CompaniesViewModel: CompaniesViewModelProtocol {
     // MARK: PRIVATE PROPERTIES
     
     private var page = 0
+    private var isSearchMode = false
     private var allCompaniesList = [Company]()
     
     // MARK: INITIALIZERS
@@ -57,35 +58,43 @@ final class CompaniesViewModel: CompaniesViewModelProtocol {
     // MARK: PUBLIC METHODS
     
     func getCompaniesList() {
-        page+=1
-        provider.getCompanies(for: page, completion: { [weak self] (companiesList, errorMessage) in
-            
-            switch (companiesList, errorMessage) {
-            case (let companiesList?, nil):
-                if let baseList = self?.allCompaniesList {
-                    self?.allCompaniesList = baseList + companiesList.results
-                    self?.companies.accept(baseList + companiesList.results)
+        if !isSearchMode {
+            page+=1
+            provider.getCompanies(for: page, completion: { [weak self] (companiesList, errorMessage) in
+                
+                switch (companiesList, errorMessage) {
+                case (let companiesList?, nil):
+                    if let baseList = self?.allCompaniesList {
+                        self?.allCompaniesList = baseList + companiesList.results
+                        self?.companies.accept(baseList + companiesList.results)
+                    }
+                case (_, .some(let errorMessage)):
+                    self?.errorMessage.accept(errorMessage)
+                case (.none, .none):
+                    self?.errorMessage.accept("Coś poszło nie tak")
                 }
-            case (_, .some(let errorMessage)):
-                self?.errorMessage.accept(errorMessage)
-            case (.none, .none):
-                self?.errorMessage.accept("Coś poszło nie tak")
-            }
-        })
+            })
+        }
     }
     
     func getSearchedCompaniesList(for query: String) {
-        provider.getSearchedCompanies(for: query, completion: { [weak self] (companiesList, errorMessage) in
-            switch (companiesList, errorMessage) {
-            case (let companiesList?, nil):
-                self?.companies.accept(companiesList)
-            case (_, .some(let errorMessage)):
-                self?.errorMessage.accept(errorMessage)
-            case (.none, .none):
-                self?.errorMessage.accept("Coś poszło nie tak")
-            }
-        })
-    }
+        if query.count > 0 {
+           isSearchMode = true
+           provider.getSearchedCompanies(for: query, completion: { [weak self] (companiesList, errorMessage) in
+               switch (companiesList, errorMessage) {
+               case (let companiesList?, nil):
+                   self?.companies.accept(companiesList)
+               case (_, .some(let errorMessage)):
+                   self?.errorMessage.accept(errorMessage)
+               case (.none, .none):
+                   self?.errorMessage.accept("Coś poszło nie tak")
+               }
+           })
+        } else {
+            isSearchMode = false
+            companies.accept(allCompaniesList)
+        }
+       }
     
     func getCompany(row: Int) -> Company {
         return companies.value[row]

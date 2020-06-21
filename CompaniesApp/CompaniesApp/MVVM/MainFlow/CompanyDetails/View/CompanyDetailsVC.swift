@@ -43,6 +43,8 @@ class CompanyDetailsVC: UIViewController, IInstantiate {
         bindUI()
     }
     
+    // MARK: SETUP
+    
     private func bindUI() {
         viewModel?.company.asDriver(onErrorJustReturn: nil)
             .drive(onNext: { [weak self] company in
