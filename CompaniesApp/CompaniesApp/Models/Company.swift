@@ -12,7 +12,6 @@ struct Company: Codable {
     let id: Int
     let name: String
     let cover_image: String
-    let description: String
     let address: Address
 }
 
@@ -24,4 +23,12 @@ struct Address: Codable {
 struct Coordinates: Codable {
     let latitude: Float
     let longitude: Float
+}
+
+struct CompanyDetails: Codable {
+    let id: Int
+    let name: String
+    let cover_image: String
+    let description: String
+    let address: Address
 }

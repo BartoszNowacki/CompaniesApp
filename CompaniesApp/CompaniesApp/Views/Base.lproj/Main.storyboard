@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompanyTableViewCell" rowHeight="50" id="q2f-qM-0kf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CompanyTableCell" rowHeight="50" id="q2f-qM-0kf" customClass="CompanyTableCell" customModule="CompaniesApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q2f-qM-0kf" id="49Z-nF-9zj">
@@ -54,23 +54,38 @@
                                                 <constraint firstItem="mre-1e-XmE" firstAttribute="top" secondItem="49Z-nF-9zj" secondAttribute="top" constant="4" id="r3b-PY-IvR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="iconView" destination="mre-1e-XmE" id="WHP-Bw-4Ej"/>
+                                            <outlet property="nameLabel" destination="i2E-B4-qj9" id="NYw-8Z-vD8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5bU-1c-y79">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="CfV-or-1kD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9Xv-gg-DYC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CfV-or-1kD" secondAttribute="bottom" id="KcZ-Di-GYT"/>
+                            <constraint firstItem="5bU-1c-y79" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OE7-mc-rmo"/>
                             <constraint firstItem="CfV-or-1kD" firstAttribute="top" secondItem="gCM-tc-q2V" secondAttribute="bottom" id="VKr-pc-TnZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CfV-or-1kD" secondAttribute="trailing" id="bDB-Au-P73"/>
                             <constraint firstItem="gCM-tc-q2V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bwi-9n-hdS"/>
                             <constraint firstItem="gCM-tc-q2V" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="dhh-Yt-tI1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gCM-tc-q2V" secondAttribute="trailing" id="eYp-Zh-ISf"/>
+                            <constraint firstItem="5bU-1c-y79" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fYe-mQ-vKS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qcU-re-Wol"/>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="5bU-1c-y79" id="OGN-AP-Jpp"/>
+                        <outlet property="searchBar" destination="gCM-tc-q2V" id="TLQ-Q2-lY2"/>
+                        <outlet property="tableView" destination="CfV-or-1kD" id="MD5-ex-Aen"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

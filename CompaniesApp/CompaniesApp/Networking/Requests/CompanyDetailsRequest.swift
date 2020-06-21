@@ -25,7 +25,7 @@ struct CompanyDetailsRequest: Codable, APIEndpoint {
     }
     
     func dispatch(
-        onSuccess successHandler: @escaping ((_: Company) -> Void),
+        onSuccess successHandler: @escaping ((_: CompanyDetails) -> Void),
         onFailure failureHandler: @escaping ((_: APIRequest.ErrorResponse?, _: Error) -> Void)) {
         
         APIRequest.get(

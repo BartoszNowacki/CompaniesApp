@@ -24,6 +24,8 @@
 		A29F125C249F7E6E00B59FA3 /* CompaniesListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F125B249F7E6E00B59FA3 /* CompaniesListRequest.swift */; };
 		A29F125F249F7EB300B59FA3 /* CompanyDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F125E249F7EB300B59FA3 /* CompanyDetailsRequest.swift */; };
 		A29F1261249F7EC300B59FA3 /* CompaniesSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1260249F7EC300B59FA3 /* CompaniesSearchRequest.swift */; };
+		A29F1263249F841A00B59FA3 /* CompaniesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1262249F841A00B59FA3 /* CompaniesProvider.swift */; };
+		A29F1265249F9A1F00B59FA3 /* CompanyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1264249F9A1F00B59FA3 /* CompanyTableCell.swift */; };
 		A2E06E51249CF611004D195F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E06E50249CF611004D195F /* AppDelegate.swift */; };
 		A2E06E53249CF611004D195F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E06E52249CF611004D195F /* SceneDelegate.swift */; };
 		A2E06E55249CF611004D195F /* CompaniesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E06E54249CF611004D195F /* CompaniesVC.swift */; };
@@ -69,6 +71,8 @@
 		A29F125B249F7E6E00B59FA3 /* CompaniesListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesListRequest.swift; sourceTree = "<group>"; };
 		A29F125E249F7EB300B59FA3 /* CompanyDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailsRequest.swift; sourceTree = "<group>"; };
 		A29F1260249F7EC300B59FA3 /* CompaniesSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchRequest.swift; sourceTree = "<group>"; };
+		A29F1262249F841A00B59FA3 /* CompaniesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesProvider.swift; sourceTree = "<group>"; };
+		A29F1264249F9A1F00B59FA3 /* CompanyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableCell.swift; sourceTree = "<group>"; };
 		A2E06E4D249CF611004D195F /* CompaniesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompaniesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E06E50249CF611004D195F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2E06E52249CF611004D195F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,11 +137,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		A2287F5C249E08EF0026E663 /* Services */ = {
+		A2287F5C249E08EF0026E663 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				A29F1262249F841A00B59FA3 /* CompaniesProvider.swift */,
 			);
-			path = Services;
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		A2287F5D249E09300026E663 /* Supporting Files */ = {
@@ -217,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				A2E06E54249CF611004D195F /* CompaniesVC.swift */,
+				A29F1264249F9A1F00B59FA3 /* CompanyTableCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,7 +282,7 @@
 				A2E06E52249CF611004D195F /* SceneDelegate.swift */,
 				A2287F5A249E083C0026E663 /* Extensions */,
 				A2287F70249E170F0026E663 /* Architecture */,
-				A2287F5C249E08EF0026E663 /* Services */,
+				A2287F5C249E08EF0026E663 /* Providers */,
 				A2287F78249E19210026E663 /* Networking */,
 				A2287F75249E18600026E663 /* MVVM */,
 				A2287F5B249E08BE0026E663 /* Views */,
@@ -447,8 +453,10 @@
 				A29F1256249F756900B59FA3 /* CompaniesList.swift in Sources */,
 				A2E06E53249CF611004D195F /* SceneDelegate.swift in Sources */,
 				A29F1254249F714700B59FA3 /* Company.swift in Sources */,
+				A29F1263249F841A00B59FA3 /* CompaniesProvider.swift in Sources */,
 				A2287F62249E0FB10026E663 /* UIViewController+Ext.swift in Sources */,
 				A29F1261249F7EC300B59FA3 /* CompaniesSearchRequest.swift in Sources */,
+				A29F1265249F9A1F00B59FA3 /* CompanyTableCell.swift in Sources */,
 				A29F1247249F5FF100B59FA3 /* UIAplication+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
