@@ -61,10 +61,9 @@ class CompaniesVC: UIViewController, INavigatedInstantiate {
     
     private func updateTableView() {
         tableView.reloadData()
-        tableView.refreshControl?.endRefreshing()
     }
 
-    @objc private func refreshCoins() {
+    @objc private func refreshList() {
         viewModel?.getCompaniesList()
     }
 }
@@ -78,7 +77,7 @@ extension CompaniesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "CompanyTableCell", for: indexPath)
-        
+        cell.selectionStyle = .none
         if let cell = cell as? CompanyTableCell {
             if let company = viewModel?.getCompany(row: indexPath.row) {
                 cell.setup(with: company)
@@ -91,6 +90,12 @@ extension CompaniesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let company = viewModel?.getCompany(row: indexPath.row) {
             viewModel?.onShowCompanyDetails?(company.id)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let dataCount = viewModel?.companiesCount, indexPath.row == dataCount - 1 {
+            refreshList()
         }
     }
 }
