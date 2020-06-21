@@ -62,16 +62,18 @@ extension APIRequest {
     private static func urlRequest(from request: APIEndpoint) -> URLRequest? {
         let endpoint = request.endpoint()
         guard let baseUrl = Bundle.main.infoDictionary?["API URL"] as? String else { return nil }
-        guard let apiKey = Bundle.main.infoDictionary?["API KEY"] as? String else { return nil }
-        let urlComponents = NSURLComponents(string: "\(baseUrl)\(endpoint)")!
+        guard let urlComponents = NSURLComponents(string: "\(baseUrl)\(endpoint)") else { return nil }
         var items = [URLQueryItem]()
         if let params = request.params() {
             items += params
         }
-        items.append(URLQueryItem(name: "access_key", value: apiKey))
         urlComponents.queryItems = items
-        let endpointRequest = URLRequest(url: urlComponents.url!)
-        return endpointRequest
+        if let url = urlComponents.url {
+            let endpointRequest = URLRequest(url: url)
+            return endpointRequest
+        } else {
+            return nil
+        }
     }
     
     public static func get<R: Codable & APIEndpoint, T: Codable, E: Codable>(

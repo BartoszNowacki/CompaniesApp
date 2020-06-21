@@ -21,6 +21,9 @@
 		A29F1254249F714700B59FA3 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1253249F714700B59FA3 /* Company.swift */; };
 		A29F1256249F756900B59FA3 /* CompaniesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1255249F756900B59FA3 /* CompaniesList.swift */; };
 		A29F125A249F780800B59FA3 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1259249F780800B59FA3 /* ApiRequest.swift */; };
+		A29F125C249F7E6E00B59FA3 /* CompaniesListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F125B249F7E6E00B59FA3 /* CompaniesListRequest.swift */; };
+		A29F125F249F7EB300B59FA3 /* CompanyDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F125E249F7EB300B59FA3 /* CompanyDetailsRequest.swift */; };
+		A29F1261249F7EC300B59FA3 /* CompaniesSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1260249F7EC300B59FA3 /* CompaniesSearchRequest.swift */; };
 		A2E06E51249CF611004D195F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E06E50249CF611004D195F /* AppDelegate.swift */; };
 		A2E06E53249CF611004D195F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E06E52249CF611004D195F /* SceneDelegate.swift */; };
 		A2E06E55249CF611004D195F /* CompaniesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E06E54249CF611004D195F /* CompaniesVC.swift */; };
@@ -63,6 +66,9 @@
 		A29F1253249F714700B59FA3 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		A29F1255249F756900B59FA3 /* CompaniesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesList.swift; sourceTree = "<group>"; };
 		A29F1259249F780800B59FA3 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		A29F125B249F7E6E00B59FA3 /* CompaniesListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesListRequest.swift; sourceTree = "<group>"; };
+		A29F125E249F7EB300B59FA3 /* CompanyDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailsRequest.swift; sourceTree = "<group>"; };
+		A29F1260249F7EC300B59FA3 /* CompaniesSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchRequest.swift; sourceTree = "<group>"; };
 		A2E06E4D249CF611004D195F /* CompaniesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompaniesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E06E50249CF611004D195F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2E06E52249CF611004D195F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 		A2287F78249E19210026E663 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A29F125D249F7E8500B59FA3 /* Requests */,
 				A29F1259249F780800B59FA3 /* ApiRequest.swift */,
 			);
 			path = Networking;
@@ -229,6 +236,16 @@
 				A29F1255249F756900B59FA3 /* CompaniesList.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A29F125D249F7E8500B59FA3 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				A29F125B249F7E6E00B59FA3 /* CompaniesListRequest.swift */,
+				A29F125E249F7EB300B59FA3 /* CompanyDetailsRequest.swift */,
+				A29F1260249F7EC300B59FA3 /* CompaniesSearchRequest.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 		A2E06E44249CF611004D195F = {
@@ -420,8 +437,10 @@
 			files = (
 				A2E06E55249CF611004D195F /* CompaniesVC.swift in Sources */,
 				A2E06E51249CF611004D195F /* AppDelegate.swift in Sources */,
+				A29F125F249F7EB300B59FA3 /* CompanyDetailsRequest.swift in Sources */,
 				A29F125A249F780800B59FA3 /* ApiRequest.swift in Sources */,
 				A2287F72249E177E0026E663 /* FlowCoordinator.swift in Sources */,
+				A29F125C249F7E6E00B59FA3 /* CompaniesListRequest.swift in Sources */,
 				A2287F60249E0DE20026E663 /* IInstantiate.swift in Sources */,
 				A29F1245249F5E1F00B59FA3 /* MainFlowCoordinator.swift in Sources */,
 				A29F124D249F6C8C00B59FA3 /* CompaniesViewModel.swift in Sources */,
@@ -429,6 +448,7 @@
 				A2E06E53249CF611004D195F /* SceneDelegate.swift in Sources */,
 				A29F1254249F714700B59FA3 /* Company.swift in Sources */,
 				A2287F62249E0FB10026E663 /* UIViewController+Ext.swift in Sources */,
+				A29F1261249F7EC300B59FA3 /* CompaniesSearchRequest.swift in Sources */,
 				A29F1247249F5FF100B59FA3 /* UIAplication+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

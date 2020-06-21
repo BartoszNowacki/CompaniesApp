@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Companies: Codable {
+struct CompaniesList: Codable {
     let page: Int
     let results: [Company]
 }
