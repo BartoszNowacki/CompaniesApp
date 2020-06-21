@@ -9,15 +9,34 @@
 import Foundation
 import UIKit
 
+protocol Coordinator {
+    func start()
+}
+
 protocol FlowCoordinator: class {
-    var navigationController: UINavigationController { get }
+    var rootNavigationController: UINavigationController? { get }
     func start()
     func stop()
 }
 
-final class FlowManager {
-    static let shared = FlowManager()
+final class FlowManager: Coordinator {
+    
+    static let shared = FlowManager(window: UIWindow(frame: UIScreen.main.bounds))
+    
+    private let window: UIWindow
     
     var mainFlow: FlowCoordinator?
-    var companiesFlow: FlowCoordinator?
+    
+    init(window: UIWindow) {
+        self.window = window
+    }
+    
+    func start() {
+        startMainFlow()
+    }
+    
+    func startMainFlow() {
+        mainFlow = MainFlowCoordinator(window: window)
+        mainFlow?.start()
+    }
 }
