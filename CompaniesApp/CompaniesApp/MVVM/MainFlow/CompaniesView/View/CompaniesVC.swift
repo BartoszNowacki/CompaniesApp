@@ -55,6 +55,10 @@ class CompaniesVC: UIViewController, INavigatedInstantiate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.backgroundColor = .white
+        tableView.refreshControl?.tintColor = .black
+        tableView.refreshControl?.attributedTitle = NSAttributedString(string: "Przeciągnij aby odświeżyć")
         tableView.refreshControl?.addTarget(
             self,
             action: #selector(refreshCoins),

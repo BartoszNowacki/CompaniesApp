@@ -29,20 +29,24 @@ final class MainFlowCoordinator: FlowCoordinator {
     }
     
     private func showMainView() {
-        
         let viewModel = CompaniesViewModel()
-        
         viewModel.onShowCompanyDetails = { [weak self] companyID in
             self?.showDetailsView(with: companyID)
         }
-        
         let (nc, _) = CompaniesVC.instantiateWithNav(viewModel: viewModel)
-        
         self.rootNavigationController = nc
         window?.rootViewController = rootNavigationController
         window?.makeKeyAndVisible()
     }
     
     private func showDetailsView(with companyID: Int) {
+        let viewModel = CompanyDetailsViewModel(companyID: companyID)
+        viewModel.onError = { [weak self] message in
+            self?.currentViewController?.dismiss(animated: true) {
+                self?.currentViewController?.display(message: message)
+            }
+        }
+        let vc = CompanyDetailsVC.instantiate(viewModel: viewModel)
+        self.rootNavigationController?.pushViewController(vc, animated: true)
     }
 }

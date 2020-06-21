@@ -26,6 +26,8 @@
 		A29F1261249F7EC300B59FA3 /* CompaniesSearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1260249F7EC300B59FA3 /* CompaniesSearchRequest.swift */; };
 		A29F1263249F841A00B59FA3 /* CompaniesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1262249F841A00B59FA3 /* CompaniesProvider.swift */; };
 		A29F1265249F9A1F00B59FA3 /* CompanyTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1264249F9A1F00B59FA3 /* CompanyTableCell.swift */; };
+		A29F126A249FAD7A00B59FA3 /* CompanyDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F1269249FAD7A00B59FA3 /* CompanyDetailsViewModel.swift */; };
+		A29F126C249FB01800B59FA3 /* CompanyDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F126B249FB01800B59FA3 /* CompanyDetailsVC.swift */; };
 		A2E06E51249CF611004D195F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E06E50249CF611004D195F /* AppDelegate.swift */; };
 		A2E06E53249CF611004D195F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E06E52249CF611004D195F /* SceneDelegate.swift */; };
 		A2E06E55249CF611004D195F /* CompaniesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E06E54249CF611004D195F /* CompaniesVC.swift */; };
@@ -73,6 +75,8 @@
 		A29F1260249F7EC300B59FA3 /* CompaniesSearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesSearchRequest.swift; sourceTree = "<group>"; };
 		A29F1262249F841A00B59FA3 /* CompaniesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesProvider.swift; sourceTree = "<group>"; };
 		A29F1264249F9A1F00B59FA3 /* CompanyTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableCell.swift; sourceTree = "<group>"; };
+		A29F1269249FAD7A00B59FA3 /* CompanyDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailsViewModel.swift; sourceTree = "<group>"; };
+		A29F126B249FB01800B59FA3 /* CompanyDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailsVC.swift; sourceTree = "<group>"; };
 		A2E06E4D249CF611004D195F /* CompaniesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompaniesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2E06E50249CF611004D195F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2E06E52249CF611004D195F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 		A2287F76249E189A0026E663 /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				A29F1266249FAB4F00B59FA3 /* CompanyDetails */,
 				A29F1240249F588B00B59FA3 /* CompaniesView */,
 				A29F1244249F5E1F00B59FA3 /* MainFlowCoordinator.swift */,
 			);
@@ -252,6 +257,31 @@
 				A29F1260249F7EC300B59FA3 /* CompaniesSearchRequest.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		A29F1266249FAB4F00B59FA3 /* CompanyDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A29F1268249FAB6200B59FA3 /* ViewModel */,
+				A29F1267249FAB5D00B59FA3 /* View */,
+			);
+			path = CompanyDetails;
+			sourceTree = "<group>";
+		};
+		A29F1267249FAB5D00B59FA3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A29F126B249FB01800B59FA3 /* CompanyDetailsVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A29F1268249FAB6200B59FA3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A29F1269249FAD7A00B59FA3 /* CompanyDetailsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A2E06E44249CF611004D195F = {
@@ -451,11 +481,13 @@
 				A29F1245249F5E1F00B59FA3 /* MainFlowCoordinator.swift in Sources */,
 				A29F124D249F6C8C00B59FA3 /* CompaniesViewModel.swift in Sources */,
 				A29F1256249F756900B59FA3 /* CompaniesList.swift in Sources */,
+				A29F126C249FB01800B59FA3 /* CompanyDetailsVC.swift in Sources */,
 				A2E06E53249CF611004D195F /* SceneDelegate.swift in Sources */,
 				A29F1254249F714700B59FA3 /* Company.swift in Sources */,
 				A29F1263249F841A00B59FA3 /* CompaniesProvider.swift in Sources */,
 				A2287F62249E0FB10026E663 /* UIViewController+Ext.swift in Sources */,
 				A29F1261249F7EC300B59FA3 /* CompaniesSearchRequest.swift in Sources */,
+				A29F126A249FAD7A00B59FA3 /* CompanyDetailsViewModel.swift in Sources */,
 				A29F1265249F9A1F00B59FA3 /* CompanyTableCell.swift in Sources */,
 				A29F1247249F5FF100B59FA3 /* UIAplication+Ext.swift in Sources */,
 			);
